@@ -1,5 +1,3 @@
-# [ 🌿 Navigate here for Start or go to ⭕ Issues](https://github.com/gerryjekova/mrusen-scam/tree/1-setup-and-plan-for-the-website)
-
 Brand Pallette styles picked: 
 ### **Light Mode Palette**  
 #### **1. Soft Neutrals + Bold Accents**  
@@ -34,3 +32,6 @@ Brand Pallette styles picked:
 - **Base Colors**: #1A1A2E, #0F0F1D, #5E5C7F  
 - **Accents**: #FF4D4D, #20E3B2, #D6B3FF  
 - **Fonts**: Fredoka One (Headings), Quicksand (Body)
+
+
+Brand Voice is casual and genuine. Only rule is to not lie. 
