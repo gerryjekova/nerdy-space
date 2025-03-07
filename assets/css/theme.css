@@ -62,14 +62,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .dropdown-header {
 	font-size: 1.5rem;
 }
-.fixed-top {
-  background: radial-gradient(circle, #4aff00,  #e3ff00, #ffa100, #ff199c, #8519ff ); 
-	border-bottom: 1px solid #f1f1f1;
-}
-footer.footer {
-  background: radial-gradient(circle, #4aff00,  #e3ff00, #ffa100, #ff199c, #8519ff ); 
-	border-top: 1px solid #ffffff;
-}
+
 .nav-link,.dropdown-item {
 	font-weight: 700;
 }
