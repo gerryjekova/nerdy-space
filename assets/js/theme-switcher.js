@@ -1,29 +1,58 @@
-// Theme Switcher Functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+document.addEventListener('DOMContentLoaded', function() {
+    // Theme dropdown toggle
+    const themeDropdownToggle = document.getElementById('theme-dropdown-toggle');
+    const themeDropdownMenu = document.getElementById('theme-dropdown-menu');
     
-    // Function to switch theme
-    function switchTheme(e) {
-      if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-      }    
+    if (themeDropdownToggle && themeDropdownMenu) {
+      // Toggle dropdown menu
+      themeDropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        themeDropdownMenu.classList.toggle('show');
+      });
+      
+      // Close the dropdown if clicked outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.theme-dropdown') && themeDropdownMenu.classList.contains('show')) {
+          themeDropdownMenu.classList.remove('show');
+        }
+      });
+      
+      // Handle theme selection
+      const themeItems = document.querySelectorAll('.theme-dropdown-item');
+      themeItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const theme = this.getAttribute('data-theme');
+          applyTheme(theme);
+          localStorage.setItem('theme', theme);
+          themeDropdownMenu.classList.remove('show');
+        });
+      });
     }
     
-    // Event listener for toggle
-    toggleSwitch.addEventListener('change', switchTheme, false);
+    // Apply saved theme or default on page load
+    const savedTheme = localStorage.getItem('theme') || 'light-retro';
+    applyTheme(savedTheme);
     
-    // Check for saved theme preference in localStorage
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    
-    if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
+    // Function to apply a theme
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
       
-      if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
+      // Update active item in dropdown if it exists
+      const themeItems = document.querySelectorAll('.theme-dropdown-item');
+      themeItems.forEach(item => {
+        if (item.getAttribute('data-theme') === theme) {
+          item.style.fontWeight = 'bold';
+        } else {
+          item.style.fontWeight = 'normal';
+        }
+      });
+      
+      // Update toggle text if it exists
+      const themeToggle = document.getElementById('theme-dropdown-toggle');
+      if (themeToggle) {
+        const isLight = theme.startsWith('light');
+        const iconClass = isLight ? 'fa-sun' : 'fa-moon';
+        themeToggle.innerHTML = `<i class="fas ${iconClass}"></i> Theme`;
       }
     }
   });
