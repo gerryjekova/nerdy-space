@@ -1,2 +1,14 @@
-*.xml
-*.xml
+/_site
+/_site/feed.xml
+_site/adobe-muse-bundle/index.html
+_site/about.html
+_site/affiliates/index.html
+_site/aries/index.html
+_site/atomize/index.html
+_site/biscaya/index.html
+_site/brake/index.html
+_site/capi-restaurant/index.html
+_site/categories.html
+_site/circular/index.html
+_site/contact.html
+_site/creation/index.html
