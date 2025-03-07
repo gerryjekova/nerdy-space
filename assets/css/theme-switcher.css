@@ -1,303 +1,776 @@
-/* Theme Variables */
+/* THEME SWITCHER CSS - COMPREHENSIVE VERSION */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Fredoka+One&family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* Theme Variables - Default to Light Soft Neutrals */
 :root {
-  /* Default Theme: Light Mode - Pastel & Retro */
-  --bg-color: #FFF6E5;
-  --secondary-bg: #F8D9C0;
-  --tertiary-bg: #D8CDEA;
-  --text-color: #2C2A4A;
-  --accent-color-1: #FF3B30;
-  --accent-color-2: #3DDC97;
-  --accent-color-3: #2C2A4A;
-  --card-bg: #ffffff;
-  --card-border: rgba(0,0,0,0.05);
-  --header-text: #ffffff;
+  /* Light Mode - Soft Neutrals + Bold Accents */
+  --light-soft-bg: #F9F9F9;
+  --light-soft-secondary: #DADADA;
+  --light-soft-tertiary: #F5E6CC;
+  --light-soft-accent1: #007BFF;
+  --light-soft-accent2: #FF5C5C;
+  --light-soft-accent3: #FFC83D;
+  --light-soft-text: #333333;
+  --light-soft-muted: #777777;
+  --light-soft-border: #E0E0E0;
+  --light-soft-card: #FFFFFF;
+  --light-soft-highlight: rgba(0, 123, 255, 0.1);
+  --light-soft-gradient1: linear-gradient(to right, #007BFF, #0062cc);
+  --light-soft-gradient2: linear-gradient(to right, #FF5C5C, #FF3333);
+  --light-soft-gradient3: linear-gradient(to right, #FFC83D, #FFA500);
+  
+  /* Light Mode - Monochrome + Playful Twist */
+  --light-mono-bg: #FFFFFF;
+  --light-mono-secondary: #F2F2F2;
+  --light-mono-tertiary: #EFEFEF;
+  --light-mono-accent1: #00C2CB;
+  --light-mono-accent2: #FF6B35;
+  --light-mono-accent3: #A7D129;
+  --light-mono-text: #333333;
+  --light-mono-muted: #666666;
+  --light-mono-border: #E6E6E6;
+  --light-mono-card: #FFFFFF;
+  --light-mono-highlight: rgba(0, 194, 203, 0.1);
+  --light-mono-gradient1: linear-gradient(to right, #00C2CB, #009EA5);
+  --light-mono-gradient2: linear-gradient(to right, #FF6B35, #FF4500);
+  --light-mono-gradient3: linear-gradient(to right, #A7D129, #8CB00B);
+  
+  /* Light Mode - Pastel & Retro */
+  --light-retro-bg: #FFF6E5;
+  --light-retro-secondary: #F8D9C0;
+  --light-retro-tertiary: #D8CDEA;
+  --light-retro-accent1: #FF3B30;
+  --light-retro-accent2: #3DDC97;
+  --light-retro-accent3: #2C2A4A;
+  --light-retro-text: #2C2A4A;
+  --light-retro-muted: #6F6A8A;
+  --light-retro-border: #F8D9C0;
+  --light-retro-card: #FFFFFF;
+  --light-retro-highlight: rgba(216, 205, 234, 0.5);
+  --light-retro-gradient1: linear-gradient(to right, #FF3B30, #DC143C);
+  --light-retro-gradient2: linear-gradient(to right, #3DDC97, #2FBB7C);
+  --light-retro-gradient3: linear-gradient(to right, #2C2A4A, #1F1D35);
+  
+  /* Dark Mode - Soft Neutrals + Bold Accents */
+  --dark-soft-bg: #1E1E1E;
+  --dark-soft-secondary: #2C2C2C;
+  --dark-soft-tertiary: #3A3A3A;
+  --dark-soft-accent1: #3D9BFF;
+  --dark-soft-accent2: #FF6A6A;
+  --dark-soft-accent3: #FFD43B;
+  --dark-soft-text: #FFFFFF;
+  --dark-soft-muted: #A29F9E;
+  --dark-soft-border: #444444;
+  --dark-soft-card: #2C2C2C;
+  --dark-soft-highlight: rgba(61, 155, 255, 0.2);
+  --dark-soft-gradient1: linear-gradient(to right, #3D9BFF, #0072E5);
+  --dark-soft-gradient2: linear-gradient(to right, #FF6A6A, #FF3333);
+  --dark-soft-gradient3: linear-gradient(to right, #FFD43B, #FFBF00);
+  
+  /* Dark Mode - Monochrome + Playful Twist */
+  --dark-mono-bg: #121212;
+  --dark-mono-secondary: #252525;
+  --dark-mono-tertiary: #333333;
+  --dark-mono-accent1: #00E1E1;
+  --dark-mono-accent2: #FF784E;
+  --dark-mono-accent3: #B4E900;
+  --dark-mono-text: #FFFFFF;
+  --dark-mono-muted: #B0B0B0;
+  --dark-mono-border: #3F3F3F;
+  --dark-mono-card: #252525;
+  --dark-mono-highlight: rgba(0, 225, 225, 0.2);
+  --dark-mono-gradient1: linear-gradient(to right, #00E1E1, #00BFBF);
+  --dark-mono-gradient2: linear-gradient(to right, #FF784E, #FF4500);
+  --dark-mono-gradient3: linear-gradient(to right, #B4E900, #93BC00);
+  
+  /* Dark Mode - Pastel & Retro */
+  --dark-retro-bg: #1A1A2E;
+  --dark-retro-secondary: #0F0F1D;
+  --dark-retro-tertiary: #282850;
+  --dark-retro-accent1: #FF4D4D;
+  --dark-retro-accent2: #20E3B2;
+  --dark-retro-accent3: #D6B3FF;
+  --dark-retro-text: #FFFFFF;
+  --dark-retro-muted: #5E5C7F;
+  --dark-retro-border: #2F2F55;
+  --dark-retro-card: #0F0F1D;
+  --dark-retro-highlight: rgba(214, 179, 255, 0.2);
+  --dark-retro-gradient1: linear-gradient(to right, #FF4D4D, #FF0000);
+  --dark-retro-gradient2: linear-gradient(to right, #20E3B2, #00CC99);
+  --dark-retro-gradient3: linear-gradient(to right, #D6B3FF, #BF80FF);
+  
+  /* Default Theme (Light Soft Neutrals) */
+  --bg-color: var(--light-soft-bg);
+  --secondary-color: var(--light-soft-secondary);
+  --tertiary-color: var(--light-soft-tertiary);
+  --accent-color1: var(--light-soft-accent1);
+  --accent-color2: var(--light-soft-accent2);
+  --accent-color3: var(--light-soft-accent3);
+  --text-color: var(--light-soft-text);
+  --muted-color: var(--light-soft-muted);
+  --border-color: var(--light-soft-border);
+  --card-bg: var(--light-soft-card);
+  --highlight-color: var(--light-soft-highlight);
+  --gradient1: var(--light-soft-gradient1);
+  --gradient2: var(--light-soft-gradient2);
+  --gradient3: var(--light-soft-gradient3);
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
 }
 
-/* Light Mode - Soft Neutrals */
+/* Theme Classes */
+/* Light - Soft Neutrals Theme */
 [data-theme="light-soft"] {
-  --bg-color: #F9F9F9;
-  --secondary-bg: #DADADA;
-  --tertiary-bg: #F5E6CC;
-  --text-color: #333333;
-  --accent-color-1: #007BFF;
-  --accent-color-2: #FF5C5C;
-  --accent-color-3: #FFC83D;
-  --card-bg: #ffffff;
-  --card-border: rgba(0,0,0,0.05);
-  --header-text: #ffffff;
+  --bg-color: var(--light-soft-bg);
+  --secondary-color: var(--light-soft-secondary);
+  --tertiary-color: var(--light-soft-tertiary);
+  --accent-color1: var(--light-soft-accent1);
+  --accent-color2: var(--light-soft-accent2);
+  --accent-color3: var(--light-soft-accent3);
+  --text-color: var(--light-soft-text);
+  --muted-color: var(--light-soft-muted);
+  --border-color: var(--light-soft-border);
+  --card-bg: var(--light-soft-card);
+  --highlight-color: var(--light-soft-highlight);
+  --gradient1: var(--light-soft-gradient1);
+  --gradient2: var(--light-soft-gradient2);
+  --gradient3: var(--light-soft-gradient3);
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
 }
 
-/* Light Mode - Monochrome + Playful */
+/* Light - Monochrome Theme */
 [data-theme="light-mono"] {
-  --bg-color: #FFFFFF;
-  --secondary-bg: #F2F2F2;
-  --tertiary-bg: #e5e5e5;
-  --text-color: #333333;
-  --accent-color-1: #00C2CB;
-  --accent-color-2: #FF6B35;
-  --accent-color-3: #A7D129;
-  --card-bg: #ffffff;
-  --card-border: rgba(0,0,0,0.05);
-  --header-text: #ffffff;
+  --bg-color: var(--light-mono-bg);
+  --secondary-color: var(--light-mono-secondary);
+  --tertiary-color: var(--light-mono-tertiary);
+  --accent-color1: var(--light-mono-accent1);
+  --accent-color2: var(--light-mono-accent2);
+  --accent-color3: var(--light-mono-accent3);
+  --text-color: var(--light-mono-text);
+  --muted-color: var(--light-mono-muted);
+  --border-color: var(--light-mono-border);
+  --card-bg: var(--light-mono-card);
+  --highlight-color: var(--light-mono-highlight);
+  --gradient1: var(--light-mono-gradient1);
+  --gradient2: var(--light-mono-gradient2);
+  --gradient3: var(--light-mono-gradient3);
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Raleway', sans-serif;
 }
 
-/* Dark Mode - Soft Neutrals */
+/* Light - Retro Theme */
+[data-theme="light-retro"] {
+  --bg-color: var(--light-retro-bg);
+  --secondary-color: var(--light-retro-secondary);
+  --tertiary-color: var(--light-retro-tertiary);
+  --accent-color1: var(--light-retro-accent1);
+  --accent-color2: var(--light-retro-accent2);
+  --accent-color3: var(--light-retro-accent3);
+  --text-color: var(--light-retro-text);
+  --muted-color: var(--light-retro-muted);
+  --border-color: var(--light-retro-border);
+  --card-bg: var(--light-retro-card);
+  --highlight-color: var(--light-retro-highlight);
+  --gradient1: var(--light-retro-gradient1);
+  --gradient2: var(--light-retro-gradient2);
+  --gradient3: var(--light-retro-gradient3);
+  --heading-font: 'Fredoka One', cursive;
+  --body-font: 'Quicksand', sans-serif;
+}
+
+/* Dark - Soft Neutrals Theme */
 [data-theme="dark-soft"] {
-  --bg-color: #1E1E1E;
-  --secondary-bg: #2C2C2C;
-  --tertiary-bg: #A29F9E;
-  --text-color: #F0F0F0;
-  --accent-color-1: #3D9BFF;
-  --accent-color-2: #FF6A6A;
-  --accent-color-3: #FFD43B;
-  --card-bg: #2a2a2a;
-  --card-border: rgba(255,255,255,0.05);
-  --header-text: #ffffff;
+  --bg-color: var(--dark-soft-bg);
+  --secondary-color: var(--dark-soft-secondary);
+  --tertiary-color: var(--dark-soft-tertiary);
+  --accent-color1: var(--dark-soft-accent1);
+  --accent-color2: var(--dark-soft-accent2);
+  --accent-color3: var(--dark-soft-accent3);
+  --text-color: var(--dark-soft-text);
+  --muted-color: var(--dark-soft-muted);
+  --border-color: var(--dark-soft-border);
+  --card-bg: var(--dark-soft-card);
+  --highlight-color: var(--dark-soft-highlight);
+  --gradient1: var(--dark-soft-gradient1);
+  --gradient2: var(--dark-soft-gradient2);
+  --gradient3: var(--dark-soft-gradient3);
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
 }
 
-/* Dark Mode - Monochrome + Playful */
+/* Dark - Monochrome Theme */
 [data-theme="dark-mono"] {
-  --bg-color: #121212;
-  --secondary-bg: #252525;
-  --tertiary-bg: #B0B0B0;
-  --text-color: #F0F0F0;
-  --accent-color-1: #00E1E1;
-  --accent-color-2: #FF784E;
-  --accent-color-3: #B4E900;
-  --card-bg: #1d1d1d;
-  --card-border: rgba(255,255,255,0.05);
-  --header-text: #ffffff;
+  --bg-color: var(--dark-mono-bg);
+  --secondary-color: var(--dark-mono-secondary);
+  --tertiary-color: var(--dark-mono-tertiary);
+  --accent-color1: var(--dark-mono-accent1);
+  --accent-color2: var(--dark-mono-accent2);
+  --accent-color3: var(--dark-mono-accent3);
+  --text-color: var(--dark-mono-text);
+  --muted-color: var(--dark-mono-muted);
+  --border-color: var(--dark-mono-border);
+  --card-bg: var(--dark-mono-card);
+  --highlight-color: var(--dark-mono-highlight);
+  --gradient1: var(--dark-mono-gradient1);
+  --gradient2: var(--dark-mono-gradient2);
+  --gradient3: var(--dark-mono-gradient3);
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Raleway', sans-serif;
 }
 
-/* Dark Mode - Pastel & Retro */
+/* Dark - Retro Theme */
 [data-theme="dark-retro"] {
-  --bg-color: #1A1A2E;
-  --secondary-bg: #0F0F1D;
-  --tertiary-bg: #5E5C7F;
-  --text-color: #F0F0F0;
-  --accent-color-1: #FF4D4D;
-  --accent-color-2: #20E3B2;
-  --accent-color-3: #D6B3FF;
-  --card-bg: #16162c;
-  --card-border: rgba(255,255,255,0.05);
-  --header-text: #ffffff;
+  --bg-color: var(--dark-retro-bg);
+  --secondary-color: var(--dark-retro-secondary);
+  --tertiary-color: var(--dark-retro-tertiary);
+  --accent-color1: var(--dark-retro-accent1);
+  --accent-color2: var(--dark-retro-accent2);
+  --accent-color3: var(--dark-retro-accent3);
+  --text-color: var(--dark-retro-text);
+  --muted-color: var(--dark-retro-muted);
+  --border-color: var(--dark-retro-border);
+  --card-bg: var(--dark-retro-card);
+  --highlight-color: var(--dark-retro-highlight);
+  --gradient1: var(--dark-retro-gradient1);
+  --gradient2: var(--dark-retro-gradient2);
+  --gradient3: var(--dark-retro-gradient3);
+  --heading-font: 'Fredoka One', cursive;
+  --body-font: 'Quicksand', sans-serif;
 }
 
-/* Apply Theme to Elements */
+/* GLOBAL STYLES */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Quicksand', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--body-font);
+  transition: all 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
+h1, h2, h3, h4, h5, h6, .font-weight-bold, .display-4 {
+  font-family: var(--heading-font);
   color: var(--text-color);
 }
 
-.card {
-  background-color: var(--card-bg);
-  border-color: var(--card-border);
-  transition: background-color 0.3s ease;
+/* NAVBAR STYLING */
+.navbar {
+  background-color: var(--card-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-.card-body {
-  color: var(--text-color);
+.navbar .nav-link {
+  color: var(--text-color) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-a:not(.btn) {
-  color: var(--accent-color-1);
+.navbar .nav-link:hover {
+  color: var(--accent-color1) !important;
+  transform: translateY(-2px);
 }
 
-a:hover:not(.btn) {
-  color: var(--accent-color-2);
+.navbar-brand {
+  color: var(--text-color) !important;
 }
 
-.bg-gray200 {
-  background-color: var(--secondary-bg);
+.navbar-toggler {
+  border-color: var(--border-color);
 }
 
-.btn-primary {
-  background-color: var(--accent-color-1);
-  border-color: var(--accent-color-1);
+.navbar-toggler-icon {
+  filter: invert(var(--invert-value, 0));
 }
 
-.btn-primary:hover {
-  background-color: var(--accent-color-2);
-  border-color: var(--accent-color-2);
-}
-
-/* Fixed compact theme menu styles */
+/* THEME DROPDOWN STYLING */
 .theme-dropdown {
   position: relative;
-  display: inline-block;
+}
+
+.theme-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  color: var(--text-color) !important;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.theme-dropdown-toggle i {
+  margin-right: 5px;
 }
 
 .theme-dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 4px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  min-width: 180px;
-  z-index: 1000;
   display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  min-width: 220px;
   padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .theme-dropdown-menu.show {
   display: block;
 }
 
-.theme-dropdown-item {
+.dropdown-header {
   display: block;
-  width: 100%;
-  padding: 0.25rem 1rem;
-  text-align: left;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.theme-dropdown-item:hover {
-  background-color: var(--secondary-bg);
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 0;
+  color: var(--accent-color1);
+  white-space: nowrap;
+  font-weight: bold;
 }
 
 .theme-dropdown-divider {
-  border-top: 1px solid var(--tertiary-bg);
-  margin: 0.25rem 0;
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border-color);
 }
 
-.dropdown-header {
-  font-size: 0.75rem;
-  padding: 0.25rem 1rem;
-  color: var(--accent-color-3);
-  font-weight: bold;
+.theme-dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  clear: both;
+  font-weight: 500;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.theme-dropdown-item:hover {
+  background-color: var(--highlight-color);
+  color: var(--accent-color1);
 }
 
 .theme-color-preview {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
   border-radius: 50%;
-  margin-right: 5px;
-  vertical-align: middle;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid var(--border-color);
 }
 
-
-/* Let's add this to your theme-switcher.css file */
-
-/* Make the header and footer gradients theme-aware */
-.fixed-top, footer.footer {
-  /* Keep your beautiful rainbow gradient as base */
-  background: radial-gradient(circle, #4aff00, #e3ff00, #ffa100, #ff199c, #8519ff);
-  /* Add a subtle overlay of the theme color */
-  box-shadow: inset 0 0 0 1000px rgba(var(--accent-shadow), 0.15);
-  /* Better text contrast */
-  color: var(--header-text);
-  border-color: var(--tertiary-bg);
-}
-
-/* Improve navigation text visibility on gradients */
-.nav-link, .dropdown-item {
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-  font-family: 'Quicksand', sans-serif;
-}
-
-/* Theme-aware cards and content */
-.card-pin.raco .notraco {
-  background-color: var(--card-bg);
-  color: var(--text-color);
-}
-
-.card-pin.raco .notraco .card-title {
-  color: var(--text-color);
-}
-
-/* Theme-aware buttons */
-.btn-primary {
-  background-color: var(--accent-color-1);
-  border-color: var(--accent-color-1);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-color-2);
-  border-color: var(--accent-color-2);
-}
-
-.btn-gray {
-  background-color: var(--secondary-bg);
-  color: var(--text-color);
-}
-
-/* Fix search contrast */
+/* SEARCH BAR STYLING */
 .form-control {
-  background-color: var(--secondary-bg);
-  color: var(--text-color);
-  border-color: var(--card-border);
+  background-color: var(--secondary-color) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-/* Theme-aware pagination */
-.pagination span.webjeda {
-  background-color: var(--accent-color-1);
-  border-color: var(--accent-color-1);
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem var(--highlight-color) !important;
 }
 
-.pagination a {
-  color: var(--accent-color-1);
+.form-control::placeholder {
+  color: var(--muted-color);
 }
 
-/* Footer links */
-footer a.text-dark, footer a.text-muted {
-  color: var(--header-text) !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+/* CARD STYLING */
+.card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
 }
 
-
-/* Add these enhanced color variables to each theme in theme-switcher.css */
-
-/* For all themes, add this shadow variable for overlays */
-:root {
-  /* existing variables */
-  --accent-shadow: 44, 58, 74; /* RGB format for box-shadow */
-}
-
-/* For Light Mode - Pastel & Retro, enhance accent colors */
-[data-theme="light-retro"] {
-  --accent-color-1: #FF5148; /* Slightly deeper red */
-  --accent-color-2: #47E8A2; /* Brighter mint */
-  --accent-color-3: #3A385E; /* Deeper navy */
-}
-
-/* For Dark Mode - Monochrome + Playful */
-[data-theme="dark-mono"] {
-  /* existing variables */
-  --accent-color-1: #00F5F5; /* Brighter teal for better visibility */
-  --accent-color-3: #CAFF00; /* More vivid lime */
-}
-
-
-/* Add Quicksand font weights for better typography */
-h1, .h1 {
-  font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-h2, .h2, h3, .h3 {
-  font-weight: 700;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
+  color: var(--text-color) !important;
+  font-family: var(--heading-font);
+}
+
+.card-body {
+  color: var(--text-color) !important;
+}
+
+.card.raco {
+  border-radius: 0.5rem !important;
+}
+
+.card-img-top {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* BUTTONS STYLING */
+.btn {
+  font-weight: 600;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--gradient1) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger {
+  background: var(--gradient2) !important;
+  border-color: transparent !important;
+}
+
+.btn-warning {
+  background: var(--gradient3) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+.btn-success {
+  background: linear-gradient(to right, var(--accent-color2), var(--accent-color3)) !important;
+  border-color: transparent !important;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* CATEGORY STYLES */
+.bg-gray200 {
+  background-color: var(--secondary-color) !important;
+}
+
+.categories .nav-link {
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+
+.categories .nav-link:hover {
+  background-color: var(--highlight-color);
+  color: var(--accent-color1);
+}
+
+/* PAGINATION STYLING */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pagination a, .pagination .prev, .pagination .next, .pagination .webjeda {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 0.25rem;
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.pagination a:hover {
+  background-color: var(--highlight-color);
+  color: var(--accent-color1);
+  text-decoration: none;
+}
+
+.pagination .webjeda {
+  background-color: var(--accent-color1);
+  color: #fff;
+  border-color: var(--accent-color1);
+}
+
+/* FOOTER STYLING */
+.footer {
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.footer a {
+  color: var(--accent-color1) !important;
+  transition: all 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--accent-color2) !important;
+  text-decoration: none;
+}
+
+.footer-social li a {
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.footer-social li a:hover {
+  background-color: var(--accent-color1);
+  color: #fff !important;
+  transform: translateY(-3px);
+}
+
+/* SOCIAL MEDIA ICONS */
+.fa, .fab, .fas {
+  color: var(--muted-color);
+  transition: all 0.2s ease;
+}
+
+.fa:hover, .fab:hover, .fas:hover {
+  color: var(--accent-color1);
+}
+
+/* POSTS NAVIGATION */
+.PageNavigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.PageNavigation a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.PageNavigation a:hover {
+  background: var(--gradient1);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* PIN ME BUTTON */
+.pinme {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  background-color: var(--card-bg);
+  border-radius: 50%;
+  padding: 0.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .pinme, .raco:hover .pinme {
+  opacity: 1;
+}
+
+/* CATEGORY TAGS */
+.showcat {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.card:hover .showcat {
+  opacity: 1;
+}
+
+/* CARD POST LINK STYLING */
+.gotopost {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  background-color: var(--card-bg);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .gotopost {
+  opacity: 1;
+}
+
+.gotopost a {
+  color: var(--text-color);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.gotopost a i {
+  margin-right: 0.25rem;
+  color: var(--accent-color1);
+}
+
+/* CARD POST TITLE */
+.notraco {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 1rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.card:hover .notraco {
+  opacity: 1;
+}
+
+.notraco .title {
+  color: #fff !important;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.more {
+  display: flex;
+  align-items: center;
+}
+
+.more i {
+  font-size: 1.2rem;
+  color: var(--accent-color1) !important;
+}
+
+/* SEARCH RESULTS STYLING */
+#lunrsearchresults {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#lunrsearchresults .modal-dialog {
+  max-width: 600px;
+}
+
+#lunrsearchresults .modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+#lunrsearchresults .modal-header {
+  border-bottom-color: var(--border-color);
+}
+
+#lunrsearchresults .modal-footer {
+  border-top-color: var(--border-color);
+}
+
+.lunrsearchresult a {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.lunrsearchresult a:hover {
+  background-color: var(--highlight-color);
+}
+
+.lunrsearchresult .title {
+  color: var(--accent-color1) !important;
   font-weight: 600;
 }
 
-body {
-  font-weight: 400;
+.lunrsearchresult .body {
+  color: var(--text-color) !important;
+}
+
+.lunrsearchresult .url {
+  color: var(--muted-color) !important;
+}
+
+/* COOKIE CONSENT STYLING */
+.cc-window {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border-top: 1px solid var(--border-color);
+}
+
+.cc-btn {
+  background-color: var(--accent-color3) !important;
+  color: #fff !important;
+}
+
+/* CONTACT FORM */
+textarea.form-control, input.form-control {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+textarea.form-control:focus, input.form-control:focus {
+  background-color: var(--tertiary-color);
+  border-color: var(--accent-color1);
+  box-shadow: 0 0 0 0.2rem var(--highlight-color);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.card, .btn, .nav-link {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .theme-dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+  
+  .card-columns {
+    column-count: 1;
+  }
+  
+  .PageNavigation {
+    margin-top: 1rem;
+  }
+  
+  .footer {
+    padding: 2rem 0;
+  }
 }
