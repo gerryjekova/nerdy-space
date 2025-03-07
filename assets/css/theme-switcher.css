@@ -311,10 +311,6 @@ pre {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Enhanced shadow for better contrast */
 }
 
-.navbar-nav categories {
-  background-color: transparent;
-}
-
 /* Add a forced contrast class for navbar items */
 .navbar .forced-light-text,
 [data-theme^="dark"] .navbar .nav-link,
@@ -343,8 +339,7 @@ pre {
 
 .navbar .nav-link:hover {
   color: #fff !important; /* Force white text on hover */
-  background: transparent;
-
+  background: transparent; /* Remove gradient background */
   transform: none; /* No movement */
   box-shadow: 0 0 15px var(--accent-color1); /* Glow effect */
   border: 1px solid var(--accent-color1); /* Highlight border */
@@ -854,7 +849,7 @@ a.prev:hover,
 a.next:hover {
   transform: translateY(-50%) scale(1.1) !important;
   background: var(--gradient1) !important;
-  color: #fffb00 !important;
+  color: #fff !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
   opacity: 1 !important;
 }
@@ -899,6 +894,8 @@ a.next:empty::before {
 }
 
 .pinme:hover {
+  transform: translateY(-50%) scale(1.1) !important;
+  background: var(--gradient1) !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
   opacity: 1 !important;
 }
@@ -912,7 +909,7 @@ a.next:empty::before {
 }
 
 .pinme:hover a {
-  box-shadow: 0 0px 5px hsl(216, 100%, 73%) !important;
+  box-shadow: 0 px 5px hsl(0, 100%, 82%) !important;
 }
 
 .gotopost {

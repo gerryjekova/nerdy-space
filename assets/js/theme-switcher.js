@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const themeDropdownMenu = document.getElementById('theme-dropdown-menu');
   
   if (themeDropdownToggle && themeDropdownMenu) {
-    // Toggle dropdown menu with stopPropagation to prevent immediate closing
+    // Toggle dropdown menu
     themeDropdownToggle.addEventListener('click', function(e) {
       e.preventDefault();
-      e.stopPropagation();
       themeDropdownMenu.classList.toggle('show');
     });
     
@@ -27,110 +26,139 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', theme);
         themeDropdownMenu.classList.remove('show');
         
-        // Visual feedback for selection
-        themeItems.forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
+        // Add visual feedback for selection
+        this.classList.add('selected');
+        setTimeout(() => {
+          this.classList.remove('selected');
+        }, 500);
       });
     });
   }
   
   // Apply saved theme or default on page load
-  const savedTheme = localStorage.getItem('theme') || 'light-soft';
+  const savedTheme = localStorage.getItem('theme') || 'light-retro';
   applyTheme(savedTheme);
   
   // Function to apply a theme
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     
-    // Update active item in dropdown
+    // Update active item in dropdown if it exists
     const themeItems = document.querySelectorAll('.theme-dropdown-item');
     themeItems.forEach(item => {
       if (item.getAttribute('data-theme') === theme) {
         item.classList.add('active');
+        item.style.fontWeight = 'bold';
       } else {
         item.classList.remove('active');
+        item.style.fontWeight = 'normal';
       }
     });
     
-    // Update toggle icon based on light or dark theme
+    // Update toggle text and icon
     const themeToggle = document.getElementById('theme-dropdown-toggle');
     if (themeToggle) {
       const isLight = theme.startsWith('light');
-      // Check if using Font Awesome 5 (fas) or older version (fa)
-      const iconPrefix = document.querySelector('.fas') ? 'fas' : 'fa';
       const iconClass = isLight ? 'fa-sun' : 'fa-moon';
-      themeToggle.innerHTML = `<i class="${iconPrefix} ${iconClass}"></i> Theme`;
+      themeToggle.innerHTML = `<i class="fas ${iconClass}"></i> Theme`;
     }
     
-    // Fix visibility issues with navigation arrows
-    fixNavigationArrows();
-    
-    // Additional theme-specific adjustments
-    adjustThemeSpecificElements(theme);
+    // Apply special effects based on theme
+    applyThemeSpecificEffects(theme);
   }
   
-  // Additional function to adjust elements based on theme
-  function adjustThemeSpecificElements(theme) {
-    const isDark = theme.startsWith('dark');
+  // Apply special effects based on current theme
+  function applyThemeSpecificEffects(theme) {
+    // Get all cards for animations
+    const cards = document.querySelectorAll('.card');
     
-    // Adjust navbar toggler for better visibility in dark themes
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    if (navbarToggler) {
-      if (isDark) {
-        navbarToggler.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-      } else {
-        navbarToggler.style.backgroundColor = '';
-      }
+    // Apply different animations based on the theme
+    if (theme.includes('retro')) {
+      // For retro themes, add subtle parallax effect to cards
+      cards.forEach(card => {
+        card.classList.add('retro-effect');
+        
+        // Add hover listener for parallax effect
+        card.addEventListener('mousemove', function(e) {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenterX = cardRect.left + cardRect.width / 2;
+          const cardCenterY = cardRect.top + cardRect.height / 2;
+          const mouseX = e.clientX - cardCenterX;
+          const mouseY = e.clientY - cardCenterY;
+          
+          // Limit the rotation
+          const maxRotation = 8;
+          const rotateY = (mouseX / cardRect.width) * maxRotation;
+          const rotateX = -((mouseY / cardRect.height) * maxRotation);
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        // Reset on mouse leave
+        card.addEventListener('mouseleave', function() {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+      });
+    } else {
+      // Remove retro effects if not a retro theme
+      cards.forEach(card => {
+        card.classList.remove('retro-effect');
+        card.style.transform = '';
+        
+        // Remove event listeners (clone and replace)
+        const newCard = card.cloneNode(true);
+        card.parentNode.replaceChild(newCard, card);
+      });
     }
     
-    // Ensure navigation arrows have appropriate contrast
-    const navArrows = document.querySelectorAll('a.prev, a.next');
-    navArrows.forEach(arrow => {
-      if (isDark) {
-        arrow.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-        arrow.style.color = '#fff';
-      } else {
-        arrow.style.backgroundColor = '';
-        arrow.style.color = '';
+    // Enhance buttons based on theme
+    const buttons = document.querySelectorAll('.btn-primary, .btn-danger, .btn-warning');
+    if (theme.includes('mono')) {
+      // For mono themes, add subtle grow effect
+      buttons.forEach(btn => {
+        btn.classList.add('mono-effect');
+      });
+    } else {
+      // Remove mono effects
+      buttons.forEach(btn => {
+        btn.classList.remove('mono-effect');
+      });
+    }
+    
+    // Apply header footer gradients based on theme
+    const navbar = document.querySelector('.navbar');
+    const footer = document.querySelector('.footer');
+    
+    if (navbar && footer) {
+      if (theme.includes('soft')) {
+        navbar.style.background = 'var(--gradient1) !important';
+        footer.style.background = 'var(--gradient1) !important';
+      } else if (theme.includes('mono')) {
+        navbar.style.background = 'var(--gradient2) !important';
+        footer.style.background = 'var(--gradient2) !important';
+      } else if (theme.includes('retro')) {
+        navbar.style.background = 'var(--gradient3) !important';
+        footer.style.background = 'var(--gradient3) !important';
       }
-    });
+    }
   }
   
-  // Function to fix navigation arrows
-  function fixNavigationArrows() {
-    const prevNextLinks = document.querySelectorAll('a.prev, a.next');
-    prevNextLinks.forEach(link => {
-      // Ensure icons are visible
-      if (!link.querySelector('i')) {
-        // Check if using Font Awesome 5 (fas) or older version (fa)
-        const iconPrefix = document.querySelector('.fas') ? 'fas' : 'fa';
-        link.innerHTML = link.classList.contains('prev') ? 
-          `<i class="${iconPrefix} fa-angle-left"></i>` : 
-          `<i class="${iconPrefix} fa-angle-right"></i>`;
-      }
-      
-      // Make slightly visible by default
-      link.style.opacity = '0.8';
-      
-      // Set background and text color for better visibility
-      const theme = document.documentElement.getAttribute('data-theme') || 'light-soft';
-      const isDark = theme.startsWith('dark');
-      
-      if (isDark) {
-        link.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-        link.style.color = '#ffffff';
-      } else {
-        // For light themes, use accent color as background
-        const computedStyle = getComputedStyle(document.documentElement);
-        const accentColor = computedStyle.getPropertyValue('--accent-color1');
-        link.style.backgroundColor = accentColor || '#007BFF';
-        link.style.color = '#ffffff';
-      }
-      
-      link.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.3)';
+  // Add special class to cards for animations
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.classList.add('card-hover');
     });
-  }
+    
+    card.addEventListener('mouseleave', function() {
+      this.classList.remove('card-hover');
+    });
+  });
   
-  // Initialize navigation arrows on page load
-  fixNavigationArrows();
+  // Enhance post navigation
+  const prevNextLinks = document.querySelectorAll('a.prev, a.next');
+  prevNextLinks.forEach(link => {
+    link.innerHTML = link.classList.contains('prev') ? 
+      '<i class="fa fa-angle-left"></i>' : 
+      '<i class="fa fa-angle-right"></i>';
+  });
 });
