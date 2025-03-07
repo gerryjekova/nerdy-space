@@ -190,3 +190,114 @@ a:hover:not(.btn) {
   vertical-align: middle;
   border: 1px solid rgba(0,0,0,0.1);
 }
+
+
+/* Let's add this to your theme-switcher.css file */
+
+/* Make the header and footer gradients theme-aware */
+.fixed-top, footer.footer {
+  /* Keep your beautiful rainbow gradient as base */
+  background: radial-gradient(circle, #4aff00, #e3ff00, #ffa100, #ff199c, #8519ff);
+  /* Add a subtle overlay of the theme color */
+  box-shadow: inset 0 0 0 1000px rgba(var(--accent-shadow), 0.15);
+  /* Better text contrast */
+  color: var(--header-text);
+  border-color: var(--tertiary-bg);
+}
+
+/* Improve navigation text visibility on gradients */
+.nav-link, .dropdown-item {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Theme-aware cards and content */
+.card-pin.raco .notraco {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.card-pin.raco .notraco .card-title {
+  color: var(--text-color);
+}
+
+/* Theme-aware buttons */
+.btn-primary {
+  background-color: var(--accent-color-1);
+  border-color: var(--accent-color-1);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color-2);
+  border-color: var(--accent-color-2);
+}
+
+.btn-gray {
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+}
+
+/* Fix search contrast */
+.form-control {
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  border-color: var(--card-border);
+}
+
+/* Theme-aware pagination */
+.pagination span.webjeda {
+  background-color: var(--accent-color-1);
+  border-color: var(--accent-color-1);
+}
+
+.pagination a {
+  color: var(--accent-color-1);
+}
+
+/* Footer links */
+footer a.text-dark, footer a.text-muted {
+  color: var(--header-text) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+
+/* Add these enhanced color variables to each theme in theme-switcher.css */
+
+/* For all themes, add this shadow variable for overlays */
+:root {
+  /* existing variables */
+  --accent-shadow: 44, 58, 74; /* RGB format for box-shadow */
+}
+
+/* For Light Mode - Pastel & Retro, enhance accent colors */
+[data-theme="light-retro"] {
+  --accent-color-1: #FF5148; /* Slightly deeper red */
+  --accent-color-2: #47E8A2; /* Brighter mint */
+  --accent-color-3: #3A385E; /* Deeper navy */
+}
+
+/* For Dark Mode - Monochrome + Playful */
+[data-theme="dark-mono"] {
+  /* existing variables */
+  --accent-color-1: #00F5F5; /* Brighter teal for better visibility */
+  --accent-color-3: #CAFF00; /* More vivid lime */
+}
+
+
+/* Add Quicksand font weights for better typography */
+h1, .h1 {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+h2, .h2, h3, .h3 {
+  font-weight: 700;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+body {
+  font-weight: 400;
+}
