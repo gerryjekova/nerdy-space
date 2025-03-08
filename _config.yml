@@ -1,12 +1,12 @@
 # Site
-name: 'Pintereso'
-description: 'Pintereso is a free Jekyll theme for awesome people like you, Pinterest like.'
+name: 'Mrusen Scam'
+description: 'Mrusen Scam – мястото, където мозъкът ви ще мине през 12 нива на съмнение! Истини, лъжи, схеми, пирамиди (не египетските) – разкриваме всичко… или поне това, което не сме решили да използваме първо ние. Влезте, но на ваша отговорност – излизането е платено. 😈'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ''
 avatar: 'assets/images/sal.jpg'
 disqus: 'demowebsite'
-email: 'wowthemesnet@gmail.com'
+email: 'casualnerdingtv@gmail.com'
 
 include: ["_pages"]
 permalink: /:title/
